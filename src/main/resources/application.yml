@@ -60,42 +60,41 @@ refresh:
 
 #微信相关参数
 wx:
-  appid: wx9e1ce60c63fd8032
-  appsecret: 1b07f62a54ee53b94a1277c6afb03a14
-  redirect:
-    url: http://maoyaoh5.caixinet.com/auth/callback
+  appid: wx9e********fd8032
+  appsecret: 1b07f6**********4a1277c6afb03a14
+  redirect:******maoyaoh5.********.com/auth/callback
   scope: snsapi_login
-  pubAppId: wxce7fe07fba0295fe
-  pubAppSecret: d08b4f03387861782575328a9a888bdd
+  pubAppId: wx********ba0295fe
+  pubAppSecret: d08b4f**********82575328a9a888bdd
   pubRedirect:
-    url: http://maoyaoh5.caixinet.com/auth/callback
+    url: http://******h5.********.com/auth/callback
   public:
     url: caixinet
 
 
 #QQ相关参数
 QQ:
-  appid: 101480728
-  appkey: 9ca215544ce6fbfac733ae6ec6de919b
+  appid: 1******28
+  appkey: 9ca215********fac733ae6ec6de919b
   redirect:
-      url: http://maoyaoh5.caixinet.com/auth/callback
+      url: http://******h5.*********.com/auth/callback
   scope: snsapi_userinfo
 
 #七牛相关配置
 qiniu:
-  accessKey: v7c5-9PurCwqUujPOzLE9fpAXbzVA5VrBRW1mklD
-  secretKey: sQK8mWllLodEEu6VAc1RjZtlN_Jvgxomn3DmquDK
+  accessKey: v7c5-9PurC**********9fpAXbzVA5VrBRW1mklD
+  secretKey: sQK8mWll**********1RjZtlN_Jvgxomn3DmquDK
   bucket: maoyao
-  path: file.caixinet.com
+  path: file.******.com
 
 #微吼相关配置
 weihou:
-  pass: 123456
-  appkey: 9dc018baafff4f846275249feed6aa3b
-  secretkey: ff2bcf58d53ac1617d0a6b3eb3848be2
-  appsecretkey: c12e40f0f9060033b3f8eb9961e81175
-  account: v24894282
-  password: 123qwe,./
+  pass: ******
+  appkey: 9dc018baafff4********49feed6aa3b
+  secretkey: ff2bcf58d53ac********b3eb3848be2
+  appsecretkey: c12e40f0f90600********9961e81175
+  account: v*******
+  password: ******
 
 user:
   default:
@@ -104,10 +103,10 @@ user:
 
 
 db_0:
-  url: jdbc:mysql://47.98.108.55:3306/maoyao_0?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+  url: jdbc:mysql://*********/maoyao_0?useUnicode=true&characterEncoding=UTF-8&useSSL=false
   username: xiaoyu
-  password: 123456
+  password: ******
 db_1:
-  url: jdbc:mysql://47.98.108.55:3306/maoyao_1?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+  url: jdbc:mysql://*********/maoyao_1?useUnicode=true&characterEncoding=UTF-8&useSSL=false
   username: xiaoyu
-  password: 123456
+  password: ******
