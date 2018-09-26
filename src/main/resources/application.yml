@@ -1,0 +1,113 @@
+spring:
+  profiles:
+    active: pro
+  thymeleaf:
+      prefix: classpath:/templates/
+  output:
+    ansi:
+      enabled: detect #终端彩色输出
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect  #不加这句则默认为myisam引擎
+  devtools:
+    remote:
+      restart:
+        enabled: true
+    restart:
+      additional-paths: src/main/java
+      additional-exclude: WEB-INF/**
+  jackson:
+    time-zone: GMT+8 #设置request和response标准时间
+    date-format: yyyy-MM-dd HH:mm:ss #设置时间格式
+  servlet:
+    multipart:
+      max-file-size: 10MB #设置单个文件上传最大限制
+      max-request-size: 100MB #设置单次请求上传最大限制
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*' #暴露所有端口
+
+
+
+logging:
+  file: log/my.log
+  level:
+    com.qjd.rry: debug #日志级别
+# JWT
+jwt:
+  header: Authorization
+  secret: maoyaoSecret
+  expiration: 604800 #6048000000 #7天
+  refresh:
+    expiration: 6048000 #70天
+  tokenHead: "Bearer "
+  route:
+    authentication:
+      path: gettoken
+      refresh: refresh
+      register: register
+      logout: logout
+
+#付费推广刷新时间间隔(min)，目前已配置在数据库
+refresh:
+   interval: 30
+
+#微信相关参数
+wx:
+  appid: wx9e1ce60c63fd8032
+  appsecret: 1b07f62a54ee53b94a1277c6afb03a14
+  redirect:
+    url: http://maoyaoh5.caixinet.com/auth/callback
+  scope: snsapi_login
+  pubAppId: wxce7fe07fba0295fe
+  pubAppSecret: d08b4f03387861782575328a9a888bdd
+  pubRedirect:
+    url: http://maoyaoh5.caixinet.com/auth/callback
+  public:
+    url: caixinet
+
+
+#QQ相关参数
+QQ:
+  appid: 101480728
+  appkey: 9ca215544ce6fbfac733ae6ec6de919b
+  redirect:
+      url: http://maoyaoh5.caixinet.com/auth/callback
+  scope: snsapi_userinfo
+
+#七牛相关配置
+qiniu:
+  accessKey: v7c5-9PurCwqUujPOzLE9fpAXbzVA5VrBRW1mklD
+  secretKey: sQK8mWllLodEEu6VAc1RjZtlN_Jvgxomn3DmquDK
+  bucket: maoyao
+  path: file.caixinet.com
+
+#微吼相关配置
+weihou:
+  pass: 123456
+  appkey: 9dc018baafff4f846275249feed6aa3b
+  secretkey: ff2bcf58d53ac1617d0a6b3eb3848be2
+  appsecretkey: c12e40f0f9060033b3f8eb9961e81175
+  account: v24894282
+  password: 123qwe,./
+
+user:
+  default:
+    avatar: http://file.caixinet.com/1_1528176949158_专栏占位图.png #用户默认头像
+    propump: 0.33
+
+
+db_0:
+  url: jdbc:mysql://47.98.108.55:3306/maoyao_0?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+  username: xiaoyu
+  password: 123456
+db_1:
+  url: jdbc:mysql://47.98.108.55:3306/maoyao_1?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+  username: xiaoyu
+  password: 123456

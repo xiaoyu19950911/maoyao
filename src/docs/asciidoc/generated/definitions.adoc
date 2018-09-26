@@ -1,0 +1,1058 @@
+
+[[_definitions]]
+== Definitions
+
+[[_artexamresponse]]
+=== ArtExamResponse
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**admissionId** +
+__optional__|简章或名师id|integer (int32)
+|**curl** +
+__optional__|内容URL|string
+|**purl** +
+__optional__|图片URL|string
+|**time** +
+__optional__|创建时间|string (date-time)
+|**title** +
+__optional__|标题/名师昵称|string
+|===
+
+
+[[_arterequest]]
+=== ArteRequest
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**status** +
+__required__|用户状态(1、正在使用；0、已停用；2、已认证)|integer (int32)
+|**userId** +
+__required__|用户id|integer (int32)
+|===
+
+
+[[_categoryinforesponse]]
+=== CategoryInfoResponse
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**amount** +
+__optional__|刷新金额|number (double)
+|**count** +
+__optional__|刷新次数|integer (int32)
+|===
+
+
+[[_charge]]
+=== Charge
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**amount** +
+__optional__|integer (int32)
+|**amountRefunded** +
+__optional__|integer (int32)
+|**amountSettle** +
+__optional__|integer (int32)
+|**app** +
+__optional__|object
+|**body** +
+__optional__|string
+|**channel** +
+__optional__|string
+|**clientIp** +
+__optional__|string
+|**created** +
+__optional__|integer (int64)
+|**credential** +
+__optional__|object
+|**currency** +
+__optional__|string
+|**description** +
+__optional__|string
+|**extra** +
+__optional__|object
+|**failureCode** +
+__optional__|string
+|**failureMsg** +
+__optional__|string
+|**id** +
+__optional__|string
+|**livemode** +
+__optional__|boolean
+|**metadata** +
+__optional__|object
+|**object** +
+__optional__|string
+|**orderNo** +
+__optional__|string
+|**paid** +
+__optional__|boolean
+|**refunded** +
+__optional__|boolean
+|**refunds** +
+__optional__|<<_chargerefundcollection,ChargeRefundCollection>>
+|**reversed** +
+__optional__|boolean
+|**subject** +
+__optional__|string
+|**timeExpire** +
+__optional__|integer (int64)
+|**timePaid** +
+__optional__|integer (int64)
+|**timeSettle** +
+__optional__|integer (int64)
+|**transactionNo** +
+__optional__|string
+|===
+
+
+[[_chargeinforequest]]
+=== ChargeInfoRequest
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**channel** +
+__required__|支付渠道|enum (alipay, wx, qpay)
+|**created** +
+__optional__|对象的创建时间|string (date-time)
+|**ending_before** +
+__optional__|决定了列表的最末项在何处结束|string
+|**limit** +
+__optional__|限制有多少对象可以被返回|integer (int32)
+|**paid** +
+__optional__|是否已付款|boolean
+|**refunded** +
+__optional__|是否存在退款信息，无论退款是否成功|boolean
+|**reversed** +
+__optional__|是否已撤销|boolean
+|**starting_after** +
+__optional__|决定了列表的第一项从何处开始|string
+|===
+
+
+[[_chargerefundcollection]]
+=== ChargeRefundCollection
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**data** +
+__optional__|< <<_refund,Refund>> > array
+|**hasMore** +
+__optional__|boolean
+|**object** +
+__optional__|string
+|**url** +
+__optional__|string
+|===
+
+
+[[_chargerequest]]
+=== ChargeRequest
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**amount** +
+__required__|订单总金额|number (double)
+|**body** +
+__required__|商品描述信息|string
+|**channel** +
+__required__|支付渠道|enum (alipay, wx, qpay)
+|**description** +
+__optional__|订单附加说明|string
+|**referenceId** +
+__optional__|商品分类主键id|integer (int32)
+|**subject** +
+__required__|商品标题|string
+|**type** +
+__optional__|(1、购买课程；2、购买专栏；3、购买课程推广；4、VIP)|integer (int32)
+|**userId** +
+__optional__|用户id|integer (int32)
+|===
+
+
+[[_columndetailedinfo]]
+=== ColumnDetailedInfo
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**applyCount** +
+__optional__|专栏订阅人数|integer (int32)
+|**cover** +
+__optional__|专栏封面url|string
+|**id** +
+__optional__|专栏id|integer (int32)
+|**intro** +
+__optional__|专栏介绍|string
+|**name** +
+__optional__|专栏标题|string
+|**price** +
+__optional__|专栏价格|number (double)
+|**status** +
+__optional__|状态（0、未订阅；1、已订阅）|integer (int32)
+|**version** +
+__optional__|专栏更新期数|integer (int32)
+|===
+
+
+[[_columninfo]]
+=== ColumnInfo
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**applyCount** +
+__optional__|专栏订阅人数|integer (int32)
+|**cover** +
+__optional__|专栏封面url|string
+|**id** +
+__optional__|专栏id|integer (int32)
+|**name** +
+__optional__|专栏标题|string
+|**price** +
+__optional__|专栏价格|number (double)
+|**version** +
+__optional__|专栏更新期数|integer (int32)
+|===
+
+
+[[_columninforequest]]
+=== ColumnInfoRequest
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**courseIdList** +
+__optional__|专栏包含课程列表|< integer (int32) > array
+|**intro** +
+__required__|专栏简介|string
+|**price** +
+__required__|专栏价格|number (double)
+|**proportion** +
+__optional__|专栏分销比例|integer (int32)
+|**purl** +
+__required__|专栏海报URL|string
+|**title** +
+__required__|专栏名称|string
+|**userVip** +
+__optional__|vip是否可以免费观看(1、可观看；2、不可观看)|integer (int32)
+|===
+
+
+[[_coursecategoryresponse]]
+=== CourseCategoryResponse
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**id** +
+__optional__|分类id|integer (int32)
+|**name** +
+__optional__|分类名称|string
+|**purl** +
+__optional__|分类图片URL|string
+|**turl** +
+__optional__|分类内容URL|string
+|===
+
+
+[[_courseinfo]]
+=== CourseInfo
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**applyCount** +
+__optional__|课程报名人数|integer (int32)
+|**column** +
+__optional__|课程所属专栏标题|string
+|**cover** +
+__optional__|课程封面URL|string
+|**id** +
+__optional__|课程id|integer (int32)
+|**price** +
+__optional__|课程价格|number (double)
+|**startTime** +
+__optional__|课程开始时间|string (date-time)
+|**status** +
+__optional__|课程状态（0、即将开课；1、往期课程）|integer (int32)
+|**title** +
+__optional__|课程标题|string
+|**type** +
+__optional__|课程播放方式(1、直播；2、录播)|integer (int32)
+|===
+
+
+[[_courseinforequest]]
+=== CourseInfoRequest
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**columnIdList** +
+__optional__|课程所属专栏列表|< integer (int32) > array
+|**intro** +
+__required__|课程简介|string
+|**price** +
+__optional__|课程价格|number (double)
+|**proportion** +
+__optional__|课程分销比例|integer (int32)
+|**purl** +
+__optional__||string
+|**startTime** +
+__required__|直播课程开始时间|string (date-time)
+|**title** +
+__required__|课程标题|string
+|**type** +
+__required__|课程播放方式(1、直播；2、录播)|integer (int32)
+|**userVip** +
+__optional__|vip是否可以免费观看(1、可观看；2、不可观看)|integer (int32)
+|**vurl** +
+__optional__||string
+|===
+
+
+[[_invitationcoderesponse]]
+=== InvitationCodeResponse
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**invitationCode** +
+__optional__|代理商邀请码|string
+|===
+
+
+[[_jwtauthenticationrequest]]
+=== JwtAuthenticationRequest
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**password** +
+__optional__|登陆凭证|string
+|**username** +
+__required__|登陆标志|string
+|===
+
+
+[[_mycourseinforesponse]]
+=== MyCourseInfoResponse
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**columnName** +
+__optional__|课程所属专栏|string
+|**id** +
+__optional__|课程id|integer (int32)
+|**intro** +
+__optional__|课程简介|string
+|**popularity** +
+__optional__|课程报名人数|integer (int32)
+|**price** +
+__optional__|课程价格|number (double)
+|**purl** +
+__optional__||string
+|**startTime** +
+__optional__|课程开始时间|string (date-time)
+|**title** +
+__optional__|课程标题|string
+|**vurl** +
+__optional__||string
+|===
+
+
+[[_othercourseresponse]]
+=== OtherCourseResponse
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**columnName** +
+__optional__|课程所属专栏|string
+|**id** +
+__optional__|课程id|integer (int32)
+|**intro** +
+__optional__|课程简介|string
+|**isPurchased** +
+__optional__|是否已购买（0、未购买；1、已购买）|integer (int32)
+|**popularity** +
+__optional__|课程报名人数|integer (int32)
+|**price** +
+__optional__|课程价格|number (double)
+|**purl** +
+__optional__||string
+|**startTime** +
+__optional__|课程开始时间|string (date-time)
+|**status** +
+__optional__|课程状态（0、未开始；1、直播中；2、已结束）|integer (int32)
+|**title** +
+__optional__|课程标题|string
+|**vurl** +
+__optional__||string
+|===
+
+
+[[_ownaccount]]
+=== OwnAccount
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**columnCount** +
+__optional__|专栏数量|integer (int32)
+|**courseCount** +
+__optional__|课程数量|integer (int32)
+|**name** +
+__optional__|账号名称|string
+|**remark** +
+__optional__|备注|string
+|===
+
+
+[[_refund]]
+=== Refund
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**amount** +
+__optional__|integer (int32)
+|**charge** +
+__optional__|string
+|**chargeOrderNo** +
+__optional__|string
+|**created** +
+__optional__|integer (int64)
+|**description** +
+__optional__|string
+|**extra** +
+__optional__|object
+|**failureCode** +
+__optional__|string
+|**failureMsg** +
+__optional__|string
+|**fundingSource** +
+__optional__|string
+|**id** +
+__optional__|string
+|**instanceURL** +
+__optional__|string
+|**metadata** +
+__optional__|object
+|**object** +
+__optional__|string
+|**orderNo** +
+__optional__|string
+|**status** +
+__optional__|string
+|**succeed** +
+__optional__|boolean
+|**timeSucceed** +
+__optional__|integer (int64)
+|**transactionNo** +
+__optional__|string
+|===
+
+
+[[_result]]
+=== Result
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|object
+|===
+
+
+[[_6e19ae3778206bc43f425a197381d852]]
+=== Result«ArtExamResponse»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|<<_artexamresponse,ArtExamResponse>>
+|===
+
+
+[[_49388d7900970b46060e9d527b638985]]
+=== Result«Charge»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|<<_charge,Charge>>
+|===
+
+
+[[_8a5e080566190d83027b07a771365b3a]]
+=== Result«ColumnDetailedInfo»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|<<_columndetailedinfo,ColumnDetailedInfo>>
+|===
+
+
+[[_1f4d2ea159babc9f8eb682e1044c7a13]]
+=== Result«CourseCategoryResponse»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|<<_coursecategoryresponse,CourseCategoryResponse>>
+|===
+
+
+[[_167809a709332d77e037c7fc178f6654]]
+=== Result«InvitationCodeResponse»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|<<_invitationcoderesponse,InvitationCodeResponse>>
+|===
+
+
+[[_2f7288fea226c87f5422694ceb6afb39]]
+=== Result«List«CategoryInfoResponse»»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|< <<_categoryinforesponse,CategoryInfoResponse>> > array
+|===
+
+
+[[_6a96bf7d7891cf88e83a890f9098fc65]]
+=== Result«List«ColumnInfo»»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|< <<_columninfo,ColumnInfo>> > array
+|===
+
+
+[[_4193b6be26076451ddd1429bdefb30d1]]
+=== Result«List«CourseInfo»»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|< <<_courseinfo,CourseInfo>> > array
+|===
+
+
+[[_4391b12250ec286853e8c79bd54b2d8f]]
+=== Result«List«OwnAccount»»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|< <<_ownaccount,OwnAccount>> > array
+|===
+
+
+[[_d4f964280c424c80275b08cfcda42bb7]]
+=== Result«List«TeacherInfo»»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|< <<_teacherinfo,TeacherInfo>> > array
+|===
+
+
+[[_f90a2e2125dfba4bfe229e303cd84e69]]
+=== Result«List«TransactionInfoResponse»»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|< <<_transactioninforesponse,TransactionInfoResponse>> > array
+|===
+
+
+[[_c70e8b124faf546fcbc995753bdc1296]]
+=== Result«List«VipCategory»»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|< <<_vipcategory,VipCategory>> > array
+|===
+
+
+[[_ede257762e73e03b7c9a34bad45c08c8]]
+=== Result«MyCourseInfoResponse»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|<<_mycourseinforesponse,MyCourseInfoResponse>>
+|===
+
+
+[[_1714742e56dbe13610aaf96f5f89c45d]]
+=== Result«OtherCourseResponse»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|<<_othercourseresponse,OtherCourseResponse>>
+|===
+
+
+[[_aeb5b6ea75443f89921595bb92990a88]]
+=== Result«SearchResultResponse»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|<<_searchresultresponse,SearchResultResponse>>
+|===
+
+
+[[_bf0baaf1c0552164c457982fb05a6aea]]
+=== Result«TeacherInfo»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|<<_teacherinfo,TeacherInfo>>
+|===
+
+
+[[_7411f1799a717b29719335939221ca10]]
+=== Result«UserAccountInfoResponse»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|<<_useraccountinforesponse,UserAccountInfoResponse>>
+|===
+
+
+[[_fb114b83be62b7f3b2f3c68bf9660027]]
+=== Result«UserInfoResponse»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|<<_userinforesponse,UserInfoResponse>>
+|===
+
+
+[[_74f23cc419163e960fe338ae58a92271]]
+=== Result«UserLiveRoomResponse»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|<<_userliveroomresponse,UserLiveRoomResponse>>
+|===
+
+
+[[_94f392d840d913506bf03d5864049add]]
+=== Result«VipCategoryResponse»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|<<_vipcategoryresponse,VipCategoryResponse>>
+|===
+
+
+[[_fae570a3bcc924fe2df6590768714126]]
+=== Result«VipInfoResponse»
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回码|integer (int32)
+|**msg** +
+__optional__|返回信息|string
+|**result** +
+__optional__|返回具体内容|<<_vipinforesponse,VipInfoResponse>>
+|===
+
+
+[[_searchresultresponse]]
+=== SearchResultResponse
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**columnInfoList** +
+__optional__|讲师列表|< <<_columninfo,ColumnInfo>> > array
+|**courseInfoList** +
+__optional__|讲师列表|< <<_courseinfo,CourseInfo>> > array
+|**teacherInfoList** +
+__optional__|讲师列表|< <<_teacherinfo,TeacherInfo>> > array
+|===
+
+
+[[_teacherinfo]]
+=== TeacherInfo
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**avatarUrl** +
+__optional__|讲师头像URL|string
+|**id** +
+__optional__|讲师id|integer (int32)
+|**intro** +
+__optional__|机构或用户简介|string
+|**nickname** +
+__optional__|机构或用户昵称|string
+|===
+
+
+[[_transactioninforesponse]]
+=== TransactionInfoResponse
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**avatarUrl** +
+__optional__|用户头像URL|string
+|**id** +
+__optional__|交易记录id|integer (int32)
+|**nickname** +
+__optional__|用户昵称|string
+|**price** +
+__optional__|购买时的价格|number (double)
+|**time** +
+__optional__|购买时间|string (date-time)
+|**title** +
+__optional__|购买的课程/专栏标题|string
+|**type** +
+__optional__|购买类型（1、专栏；2、课程）|integer (int32)
+|===
+
+
+[[_updatecolumninforequest]]
+=== UpdateColumnInfoRequest
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**columnId** +
+__required__|专栏id|integer (int32)
+|**intro** +
+__required__|专栏简介|string
+|**price** +
+__required__|专栏价格|number (double)
+|**proportion** +
+__optional__|专栏分销比例|integer (int32)
+|**purl** +
+__required__|专栏海报URL|string
+|**title** +
+__required__|专栏名称|string
+|**userVip** +
+__optional__|vip是否可以免费观看(1、可观看；2、不可观看)|integer (int32)
+|===
+
+
+[[_updatecourseinforequest]]
+=== UpdateCourseInfoRequest
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**columnId** +
+__optional__|课程所属专栏|integer (int32)
+|**id** +
+__required__|课程id|integer (int32)
+|**intro** +
+__required__|课程简介|string
+|**price** +
+__optional__|课程价格|number (double)
+|**proportion** +
+__optional__|课程分销比例|string
+|**startTime** +
+__optional__|直播课程开始时间|string (date-time)
+|**title** +
+__required__|课程标题|string
+|**useVip** +
+__optional__|vip是否可以免费观看(1、可观看；2、不可观看)|integer (int32)
+|**vurl** +
+__optional__||string
+|===
+
+
+[[_useraccountinforesponse]]
+=== UserAccountInfoResponse
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**hasWithdrawal** +
+__optional__|已提现金额|number (double)
+|**notWithdrawal** +
+__optional__|可提现金额|number (double)
+|**url** +
+__optional__|公众号链接|string
+|===
+
+
+[[_userinforequest]]
+=== UserInfoRequest
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**intro** +
+__optional__|课程简介|string
+|**title** +
+__optional__|课程名称|string
+|**url** +
+__optional__|课程海报url|string
+|===
+
+
+[[_userinforesponse]]
+=== UserInfoResponse
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**avatarUrl** +
+__optional__|用户头像URL|string
+|**code** +
+__optional__|用户编码|string
+|**intro** +
+__optional__|用户简介|string
+|**invitationCode** +
+__optional__|用户邀请码|string
+|**nickName** +
+__optional__|用户昵称|string
+|**roles** +
+__optional__|用户角色|< string > array
+|**status** +
+__optional__|用户状态(1、正在使用；0、已停用；2、已认证)|integer (int32)
+|===
+
+
+[[_userliveroomresponse]]
+=== UserLiveRoomResponse
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**attention** +
+__optional__|用户人气|integer (int32)
+|**avatarUrl** +
+__optional__|用户头像URL|string
+|**code** +
+__optional__|用户编码|string
+|**intro** +
+__optional__|用户简介|string
+|**isAttention** +
+__optional__|是否已关注|integer (int32)
+|**nickName** +
+__optional__|用户昵称|string
+|**storesUrl** +
+__optional__|用户个人店铺URL|string
+|===
+
+
+[[_vipcategory]]
+=== VipCategory
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**amount** +
+__optional__|金额：元|number (double)
+|**monthCount** +
+__optional__|当status为0时，为天数；当status为1时，为月份|integer (int32)
+|**status** +
+__optional__|0：试用vip；1、正式vip|integer (int32)
+|===
+
+
+[[_vipcategoryresponse]]
+=== VipCategoryResponse
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**categoryId** +
+__optional__|分类id|integer (int32)
+|**price** +
+__optional__|vip价格|number (double)
+|**timeLength** +
+__optional__|vip时长|integer (int32)
+|**type** +
+__optional__|vip类型(0、非vip；1、普通vip；2、超级vip；3、试用vip)|number (double)
+|**vipIntro** +
+__optional__|vip权益介绍|string
+|===
+
+
+[[_vipinforesponse]]
+=== VipInfoResponse
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**endTime** +
+__optional__|vip到期时间|string (date-time)
+|**type** +
+__optional__|vip类型(0、非vip；1、普通vip；2、超级vip；3、试用vip)|integer (int32)
+|===
+
+
+[[_withdrawalsrequest]]
+=== WithdrawalsRequest
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**amount** +
+__required__|提现金额|integer (int32)
+|**description** +
+__optional__|备注信息|string
+|===
+
+
+[[_ab08e325c45a0150a4ae9fca3a9d7e96]]
+=== 用户注册请求参数
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**identityType** +
+__optional__|登陆类型（1、微信；2、QQ；3、账号密码）|integer (int32)
+|**invitationCode** +
+__optional__|用户登陆邀请码|string
+|**password** +
+__required__|用户登陆凭证|string
+|**roleList** +
+__required__|用户角色列表|< string > array
+|**username** +
+__required__|用户登陆标志|string
+|===
+
+
+

@@ -1,0 +1,45 @@
+= 人人艺
+
+
+[[_overview]]
+== Overview
+人人艺后台API接口
+
+
+=== Version information
+[%hardbreaks]
+__Version__ : 1.0
+
+
+=== Contact information
+[%hardbreaks]
+__Contact__ : 肖宇
+
+
+=== License information
+[%hardbreaks]
+__Terms of service__ : http://extremevalue.cn:8088
+
+
+=== URI scheme
+[%hardbreaks]
+__Host__ : localhost:8080
+__BasePath__ : /
+
+
+=== Tags
+
+* art : 艺考在线相关接口
+* auth : 授权相关接口
+* banner : banner相关接口
+* category : 分类相关接口
+* column : 专栏相关接口
+* course : 课程相关接口
+* live : 直播相关接口
+* pay : 支付相关接口
+* search : 搜索相关接口
+* user : 用户相关接口
+* vip : vip相关接口
+
+
+

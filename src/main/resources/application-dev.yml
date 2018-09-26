@@ -1,0 +1,55 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.98.108.55:3306/maoyao?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+    type: org.apache.commons.dbcp2.BasicDataSource
+    dbcp2:
+      default-auto-commit: true
+      initial-size: 30
+      max-total: 120
+      max-idle: 120
+      min-idle: 30
+      max-wait-millis: 10000
+      validation-query: 'SELECT 1'
+      validation-query-timeout: 3
+      test-on-borrow: true
+      test-while-idle: true
+      time-between-eviction-runs-millis: 10000
+      num-tests-per-eviction-run: 10
+      min-evictable-idle-time-millis: 120000
+      remove-abandoned-on-borrow: true
+      remove-abandoned-timeout: 120
+      pool-prepared-statements: true
+  activemq:
+    broker-url: tcp://47.98.108.55:61616
+    user: admin
+    password: admin
+  redis:
+    host: 47.98.108.55
+    password: 123qwe,./
+    timeout: 10000ms
+    port: 6378
+    lettuce: #springboot2.x使用的是lettuce客户端
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: -1ms
+
+server:
+  port: 8888
+
+#PAY
+pay:
+  apiKey: sk_test_4GSenLGinLi5nzD4W91aDyL4 #测试环境下ping++ key
+  #apiKey: sk_live_nbzDWP4q1GOCuzLC4SfnDyDO #真实环境下ping++ key
+  appId: app_9iXL44KCyTW9mrbX
+  privateKeyFilePath: rsa_private_key.pem
+  pubKeyPath: pingpp_public_key.pem
+
+
+
+
+

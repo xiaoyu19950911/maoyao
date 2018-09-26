@@ -1,0 +1,2479 @@
+
+[[_paths]]
+== Paths
+
+[[_getadmissioninfousingget]]
+=== 获取招生简章信息列表
+....
+GET /art/queryadmissioninfo
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Query**|**page** +
+__optional__|Results page you want to retrieve (0..N)|integer (int32)
+|**Query**|**size** +
+__optional__|Number of records per page.|integer (int32)
+|**Query**|**sort** +
+__optional__|pageable|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_6e19ae3778206bc43f425a197381d852,Result«ArtExamResponse»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* art
+
+
+[[_getartteacherinfousingget]]
+=== 获取艺考名师信息列表
+....
+GET /art/queryartteacherinfo
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Query**|**page** +
+__optional__|Results page you want to retrieve (0..N)|integer (int32)
+|**Query**|**size** +
+__optional__|Number of records per page.|integer (int32)
+|**Query**|**sort** +
+__optional__|pageable|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_6e19ae3778206bc43f425a197381d852,Result«ArtExamResponse»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* art
+
+
+[[_createauthenticationtokenusingpost]]
+=== 登陆并获取token
+....
+POST /auth/gettoken
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Body**|**authenticationRequest** +
+__required__|authenticationRequest|<<_jwtauthenticationrequest,JwtAuthenticationRequest>>
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|object
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* auth
+
+
+[[_deleteauthenticationtokenusingput]]
+=== 退出并更新token
+....
+PUT /auth/logout
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* auth
+
+
+[[_refreshandgetauthenticationtokenusingget]]
+=== 刷新token
+....
+GET /auth/refresh
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|object
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* auth
+
+
+[[_registerusingpost]]
+=== 注册账号
+....
+POST /auth/register
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Body**|**request** +
+__required__|request|<<_ab08e325c45a0150a4ae9fca3a9d7e96,用户注册请求参数>>
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* auth
+
+
+[[_addbannerlistusingpost]]
+=== 新增banner
+....
+POST /banner/createbanner
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Query**|**userId** +
+__required__|userId|< integer (int32) > array(multi)
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_bf0baaf1c0552164c457982fb05a6aea,Result«TeacherInfo»>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* banner
+
+
+[[_updatebannerlistusingput]]
+=== 取消banner
+....
+PUT /banner/modifybanner
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Query**|**userId** +
+__required__|userId|< integer (int32) > array(multi)
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_bf0baaf1c0552164c457982fb05a6aea,Result«TeacherInfo»>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* banner
+
+
+[[_getbannerlistusingget]]
+=== 获取banner列表
+....
+GET /banner/querybannerlist
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Query**|**page** +
+__optional__|Results page you want to retrieve (0..N)|integer (int32)
+|**Query**|**size** +
+__optional__|Number of records per page.|integer (int32)
+|**Query**|**sort** +
+__optional__|pageable|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_bf0baaf1c0552164c457982fb05a6aea,Result«TeacherInfo»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* banner
+
+
+[[_getcategoryinfousingget]]
+=== 获取推广列表
+....
+GET /category/querycharge
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Query**|**page** +
+__optional__|Results page you want to retrieve (0..N)|integer (int32)
+|**Query**|**size** +
+__optional__|Number of records per page.|integer (int32)
+|**Query**|**sort** +
+__optional__|pageable|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_2f7288fea226c87f5422694ceb6afb39,Result«List«CategoryInfoResponse»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* category
+
+
+[[_getvipcategorylistusingget]]
+=== 获取可开通vip列表
+....
+GET /category/queryvipcategorylist
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Query**|**page** +
+__optional__|Results page you want to retrieve (0..N)|integer (int32)
+|**Query**|**size** +
+__optional__|Number of records per page.|integer (int32)
+|**Query**|**sort** +
+__optional__|pageable|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_c70e8b124faf546fcbc995753bdc1296,Result«List«VipCategory»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* category
+
+
+[[_addcolumnusingpost]]
+=== 新建专栏
+....
+POST /column/createcolumn
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Body**|**request** +
+__required__|request|<<_columninforequest,ColumnInfoRequest>>
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* column
+
+
+[[_addcoursetocolumnusingput]]
+=== 添加课程至专栏
+....
+PUT /column/createcoursetocolumn/{columnId}
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4,.^2"]
+|===
+|Type|Name|Description|Schema|Default
+|**Header**|**Authorization** +
+__optional__|令牌|string|
+|**Path**|**columnId** +
+__optional__|专栏id|integer (int32)|`1`
+|**Query**|**courseIdList** +
+__required__|courseIdList|< integer (int32) > array(multi)|
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* column
+
+
+[[_removecolumnusingdelete]]
+=== 删除专栏
+....
+DELETE /column/deletecolumn
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Query**|**columnIdList** +
+__required__|columnIdList|< integer (int32) > array(multi)
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**204**|No Content|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* column
+
+
+[[_updatecolumnusingput]]
+=== 编辑专栏
+....
+PUT /column/modifycolumn
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Body**|**request** +
+__required__|request|<<_updatecolumninforequest,UpdateColumnInfoRequest>>
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* column
+
+
+[[_getpurchasedcourseinfousingget]]
+=== 查询专栏详细信息
+....
+GET /column/querypurchasedcolumninfo/{columnId}
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4,.^2"]
+|===
+|Type|Name|Description|Schema|Default
+|**Header**|**Authorization** +
+__optional__|令牌|string|
+|**Path**|**columnId** +
+__optional__|专栏id|integer (int32)|`1`
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_8a5e080566190d83027b07a771365b3a,Result«ColumnDetailedInfo»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* column
+
+
+[[_getpurchasedcourseinfolistusingget]]
+=== 已购-查询已购专栏列表
+....
+GET /column/querypurchasedcolumninfolist
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Query**|**page** +
+__optional__|Results page you want to retrieve (0..N)|integer (int32)
+|**Query**|**size** +
+__optional__|Number of records per page.|integer (int32)
+|**Query**|**sort** +
+__optional__|pageable|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_6a96bf7d7891cf88e83a890f9098fc65,Result«List«ColumnInfo»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* column
+
+
+[[_getusercolumninfolistusingget]]
+=== 获取用户专栏列表
+....
+GET /column/queryusercolumninfolist/{userId}
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4,.^2"]
+|===
+|Type|Name|Description|Schema|Default
+|**Header**|**Authorization** +
+__optional__|令牌|string|
+|**Path**|**userId** +
+__optional__|用户id|integer (int32)|`1`
+|**Query**|**page** +
+__optional__|Results page you want to retrieve (0..N)|integer (int32)|
+|**Query**|**size** +
+__optional__|Number of records per page.|integer (int32)|
+|**Query**|**sort** +
+__optional__|pageable|string|
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_6a96bf7d7891cf88e83a890f9098fc65,Result«List«ColumnInfo»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* column
+
+
+[[_createcourseusingpost]]
+=== 创建课程
+....
+POST /course/addcourse
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Body**|**request** +
+__required__|request|<<_courseinforequest,CourseInfoRequest>>
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* course
+
+
+[[_updatecourseusingput]]
+=== 编辑课程
+....
+PUT /course/modifycourse
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Body**|**request** +
+__required__|request|<<_updatecourseinforequest,UpdateCourseInfoRequest>>
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* course
+
+
+[[_getcoursecategoryusingget]]
+=== 获取课程/首页底部模块分类
+....
+GET /course/querycoursecategory
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4,.^2"]
+|===
+|Type|Name|Description|Schema|Default
+|**Header**|**Authorization** +
+__optional__|令牌|string|
+|**Query**|**type** +
+__optional__|1、课程分类；2、首页底部模块分类|ref|`"1"`
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_1f4d2ea159babc9f8eb682e1044c7a13,Result«CourseCategoryResponse»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* course
+
+
+[[_getcourseinfolistbycolumnusingget]]
+=== 根据专栏id获取课程列表
+....
+GET /course/querycourseinfolistbycolumn
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Query**|**page** +
+__optional__|Results page you want to retrieve (0..N)|integer (int32)
+|**Query**|**size** +
+__optional__|Number of records per page.|integer (int32)
+|**Query**|**sort** +
+__optional__|pageable|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_4193b6be26076451ddd1429bdefb30d1,Result«List«CourseInfo»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* course
+
+
+[[_getfreecourseinfolistusingget]]
+=== 免费专区-获取免费课程列表
+....
+GET /course/queryfreecourseinfolist
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Query**|**page** +
+__optional__|Results page you want to retrieve (0..N)|integer (int32)
+|**Query**|**size** +
+__optional__|Number of records per page.|integer (int32)
+|**Query**|**sort** +
+__optional__|pageable|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_4193b6be26076451ddd1429bdefb30d1,Result«List«CourseInfo»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* course
+
+
+[[_gethotcourseinfolistusingget]]
+=== 热门推荐-获取热门课程列表
+....
+GET /course/queryhotcourseinfolist
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Query**|**page** +
+__optional__|Results page you want to retrieve (0..N)|integer (int32)
+|**Query**|**size** +
+__optional__|Number of records per page.|integer (int32)
+|**Query**|**sort** +
+__optional__|pageable|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_4193b6be26076451ddd1429bdefb30d1,Result«List«CourseInfo»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* course
+
+
+[[_getlivecourseinfolistusingget]]
+=== 艺术直播-获取当前正在直播的课程列表
+....
+GET /course/querylivecourseinfolist
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Query**|**page** +
+__optional__|Results page you want to retrieve (0..N)|integer (int32)
+|**Query**|**size** +
+__optional__|Number of records per page.|integer (int32)
+|**Query**|**sort** +
+__optional__|pageable|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_4193b6be26076451ddd1429bdefb30d1,Result«List«CourseInfo»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* course
+
+
+[[_getmycourseinfousingget]]
+=== 获取自身已创建课程详细信息
+....
+GET /course/querymycourseinfo/{courseId}
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4,.^2"]
+|===
+|Type|Name|Description|Schema|Default
+|**Header**|**Authorization** +
+__optional__|令牌|string|
+|**Path**|**courseId** +
+__optional__|课程id|integer (int32)|`1`
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_ede257762e73e03b7c9a34bad45c08c8,Result«MyCourseInfoResponse»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* course
+
+
+[[_getothercourseinfousingget]]
+=== 获取其他人已创建课程详细信息
+....
+GET /course/queryothercourseinfo/{courseId}
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4,.^2"]
+|===
+|Type|Name|Description|Schema|Default
+|**Header**|**Authorization** +
+__optional__|令牌|string|
+|**Path**|**courseId** +
+__optional__|课程id|integer (int32)|`1`
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_1714742e56dbe13610aaf96f5f89c45d,Result«OtherCourseResponse»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* course
+
+
+[[_getpurchasedcourseinfolistusingget_1]]
+=== 已购-查询已购课程列表
+....
+GET /course/querypurchasedcourseinfolist
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Query**|**page** +
+__optional__|Results page you want to retrieve (0..N)|integer (int32)
+|**Query**|**size** +
+__optional__|Number of records per page.|integer (int32)
+|**Query**|**sort** +
+__optional__|pageable|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_4193b6be26076451ddd1429bdefb30d1,Result«List«CourseInfo»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* course
+
+
+[[_getspeakcourseinfolistusingget]]
+=== 开讲-获取最近3条可直播的课程列表
+....
+GET /course/queryspeakcourseinfolist
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_4193b6be26076451ddd1429bdefb30d1,Result«List«CourseInfo»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* course
+
+
+[[_getusercourseinfolistusingget]]
+=== 获取用户创建的课程列表
+....
+GET /course/queryusercourseinfolist
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Query**|**page** +
+__optional__|Results page you want to retrieve (0..N)|integer (int32)
+|**Query**|**size** +
+__optional__|Number of records per page.|integer (int32)
+|**Query**|**sort** +
+__optional__|pageable|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_4193b6be26076451ddd1429bdefb30d1,Result«List«CourseInfo»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* course
+
+
+[[_deletecourseusingdelete]]
+=== 删除课程
+....
+DELETE /course/removecourse/{courseId}
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4,.^2"]
+|===
+|Type|Name|Description|Schema|Default
+|**Header**|**Authorization** +
+__optional__|令牌|string|
+|**Path**|**courseId** +
+__optional__|课程id|integer (int32)|`1`
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**204**|No Content|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* course
+
+
+[[_addliveusingpost]]
+=== 创建直播回调接口
+....
+POST /live/createlive
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Query**|**courseId** +
+__required__|课程id|ref
+|**Query**|**id** +
+__required__|直播id|ref
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* live
+
+
+[[_getliveusingget]]
+=== 查询课程最近一条直播id
+....
+GET /live/querylive
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Query**|**courseId** +
+__required__|courseId|integer (int32)
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_result,Result>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* live
+
+
+[[_getchargeusingpost]]
+=== 支付（获取支付凭证）
+....
+POST /pay/getcharge
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Body**|**request** +
+__required__|request|<<_chargerequest,ChargeRequest>>
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_charge,Charge>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* pay
+
+
+[[_findchargeusingget]]
+=== 查询支付凭证
+....
+GET /pay/querycharge/{chargeId}
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Path**|**chargeId** +
+__optional__|支付凭证id|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_49388d7900970b46060e9d527b638985,Result«Charge»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* pay
+
+
+[[_findchargelistusingpost]]
+=== 查询支付凭证列表
+....
+POST /pay/querychargelist
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Body**|**request** +
+__required__|request|<<_chargeinforequest,ChargeInfoRequest>>
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_49388d7900970b46060e9d527b638985,Result«Charge»>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* pay
+
+
+[[_createtransferusingpost]]
+=== 提现
+....
+POST /pay/withdrawals 
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Body**|**request** +
+__required__|request|<<_withdrawalsrequest,WithdrawalsRequest>>
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_49388d7900970b46060e9d527b638985,Result«Charge»>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* pay
+
+
+[[_getsearchresultusingget]]
+=== 搜索相关信息
+....
+GET /search/querysearchresult/{searchInfo}
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Path**|**searchInfo** +
+__required__|searchInfo|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_aeb5b6ea75443f89921595bb92990a88,Result«SearchResultResponse»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* search
+
+
+[[_updatearteinfousingput]]
+=== 设置认证艺术家
+....
+PUT /user/modifyarteinfo
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Body**|**request** +
+__required__|request|< <<_arterequest,ArteRequest>> > array
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_fb114b83be62b7f3b2f3c68bf9660027,Result«UserInfoResponse»>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* user
+
+
+[[_updateuserinfousingput]]
+=== 修改个人信息
+....
+PUT /user/modifyuserinfo
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Body**|**request** +
+__required__|request|<<_userinforequest,UserInfoRequest>>
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_fb114b83be62b7f3b2f3c68bf9660027,Result«UserInfoResponse»>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* user
+
+
+[[_getartistlistusingget]]
+=== 艺术家专栏-获取已认证艺术家列表
+....
+GET /user/queryartistlist
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Query**|**page** +
+__optional__|Results page you want to retrieve (0..N)|integer (int32)
+|**Query**|**size** +
+__optional__|Number of records per page.|integer (int32)
+|**Query**|**sort** +
+__optional__|pageable|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_d4f964280c424c80275b08cfcda42bb7,Result«List«TeacherInfo»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* user
+
+
+[[_getattentionteacherlistusingget]]
+=== 获取关注讲师列表
+....
+GET /user/queryattentionteacherlist/{userId}
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4,.^2"]
+|===
+|Type|Name|Description|Schema|Default
+|**Header**|**Authorization** +
+__optional__|令牌|string|
+|**Path**|**userId** +
+__optional__|用户id|integer (int32)|`1`
+|**Query**|**page** +
+__optional__|Results page you want to retrieve (0..N)|integer (int32)|
+|**Query**|**size** +
+__optional__|Number of records per page.|integer (int32)|
+|**Query**|**sort** +
+__optional__|pageable|string|
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_d4f964280c424c80275b08cfcda42bb7,Result«List«TeacherInfo»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* user
+
+
+[[_getcategoryteacherlistusingget]]
+=== 根据分类获取讲师列表
+....
+GET /user/querycategoryteeacherlist/{categoryId}
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4,.^2"]
+|===
+|Type|Name|Description|Schema|Default
+|**Header**|**Authorization** +
+__optional__|令牌|string|
+|**Path**|**categoryId** +
+__optional__|分类id|integer (int32)|`1`
+|**Query**|**page** +
+__optional__|Results page you want to retrieve (0..N)|integer (int32)|
+|**Query**|**size** +
+__optional__|Number of records per page.|integer (int32)|
+|**Query**|**sort** +
+__optional__|pageable|string|
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_d4f964280c424c80275b08cfcda42bb7,Result«List«TeacherInfo»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* user
+
+
+[[_getinvitationcodeusingget]]
+=== 生成6位代理商邀请码
+....
+GET /user/queryinvitationcode
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_167809a709332d77e037c7fc178f6654,Result«InvitationCodeResponse»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* user
+
+
+[[_getownaccountlistusingget]]
+=== 查询自有账号列表
+....
+GET /user/queryownaccountlist
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_4391b12250ec286853e8c79bd54b2d8f,Result«List«OwnAccount»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* user
+
+
+[[_getpartartistlistusingget]]
+=== 学艺-获取已认证艺术家列表
+....
+GET /user/querypartartistlist
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|**Query**|**page** +
+__optional__|Results page you want to retrieve (0..N)|integer (int32)
+|**Query**|**size** +
+__optional__|Number of records per page.|integer (int32)
+|**Query**|**sort** +
+__optional__|pageable|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_d4f964280c424c80275b08cfcda42bb7,Result«List«TeacherInfo»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* user
+
+
+[[_gettransactioninfolistusingget]]
+=== 获取收入支出信息列表
+....
+GET /user/querytransactioninfolist
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4,.^2"]
+|===
+|Type|Name|Description|Schema|Default
+|**Header**|**Authorization** +
+__optional__|令牌|string|
+|**Query**|**page** +
+__optional__|Results page you want to retrieve (0..N)|integer (int32)|
+|**Query**|**size** +
+__optional__|Number of records per page.|integer (int32)|
+|**Query**|**sort** +
+__optional__|pageable|string|
+|**Query**|**type** +
+__optional__|1、查询收入列表；2、查询支出列表|integer (int64)|`1`
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_f90a2e2125dfba4bfe229e303cd84e69,Result«List«TransactionInfoResponse»»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* user
+
+
+[[_getuseraccountinfousingget]]
+=== 获取用户账户信息
+....
+GET /user/queryuseraccountinfo
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_7411f1799a717b29719335939221ca10,Result«UserAccountInfoResponse»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* user
+
+
+[[_getuserinfousingget]]
+=== 获取当前用户信息
+....
+GET /user/queryuserinfo
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_fb114b83be62b7f3b2f3c68bf9660027,Result«UserInfoResponse»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* user
+
+
+[[_getuserliveroomusingget]]
+=== 获取用户直播间信息
+....
+GET /user/queryuserliveroom/{userId}
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4,.^2"]
+|===
+|Type|Name|Description|Schema|Default
+|**Header**|**Authorization** +
+__optional__|令牌|string|
+|**Path**|**userId** +
+__optional__|用户id|integer (int32)|`1`
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_74f23cc419163e960fe338ae58a92271,Result«UserLiveRoomResponse»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* user
+
+
+[[_getvipcategoryusingget]]
+=== 获取可开通vip类型列表
+....
+GET /vip/queryvipcategory
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_94f392d840d913506bf03d5864049add,Result«VipCategoryResponse»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* vip
+
+
+[[_getvipinfousingget]]
+=== 获取当前用户vip信息
+....
+GET /vip/queryvipinfo
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**Authorization** +
+__optional__|令牌|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_fae570a3bcc924fe2df6590768714126,Result«VipInfoResponse»>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* vip
+
+
+
