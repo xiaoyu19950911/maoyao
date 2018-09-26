@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://47.98.200.165:3306/maoyao?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://******:3306/maoyao?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     username: root
     password: 123Qwe,./
     type: org.apache.commons.dbcp2.BasicDataSource
@@ -23,16 +23,16 @@ spring:
       remove-abandoned-timeout: 120
       pool-prepared-statements: true
   activemq:
-    broker-url: tcp://47.98.200.165:61616
+    broker-url: tcp://******:61616
     user: admin
-    password: admin
+    password: ******
     packages:
       trust-all: true
   redis:
     port: 51111
     password: e8zhUdb!U^
     database: 0
-    host: 47.98.200.165
+    host: ******
     lettuce: #springboot2.x使用的是lettuce客户端
       pool:
         max-active: 8
@@ -45,8 +45,8 @@ server:
 
 #PAY
 pay:
-  # apiKey: sk_test_4GSenLGinLi5nzD4W91aDyL4 #测试环境下ping++ key
-  apiKey: sk_live_nbzDWP4q1GOCuzLC4SfnDyDO #真实环境下ping++ key
-  appId: app_9iXL44KCyTW9mrbX
+  # apiKey: sk_test_4GS********5nzD4W91aDyL4 #测试环境下ping++ key
+  apiKey: sk_live_nbz********CuzLC4SfnDyDO #真实环境下ping++ key
+  appId: app_*********TW9mrbX
   privateKeyFilePath: rsa_private_key.pem
   pubKeyPath: pingpp_public_key.pem
